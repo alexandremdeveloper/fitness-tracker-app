@@ -14,14 +14,11 @@ export default function RootLayout() {
   useEffect(() => {
     async function checkAuth() {
       const token = await SecureStore.getItemAsync("token");
-
-      setIsReady(true);
-
       if (token) {
         router.replace('/(tabs)');
       }
+      setIsReady(true);
     }
-
     checkAuth();
   }, []);
 
